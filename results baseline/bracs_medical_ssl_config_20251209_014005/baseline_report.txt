@@ -1,0 +1,68 @@
+======================================================================
+BASELINE EVALUATION REPORT
+======================================================================
+
+MODEL STRUCTURE AND COMPONENTS
+----------------------------------------
+Total parameters: 148,996
+Trainable parameters: 148,996
+Trainable ratio: 100.00%
+
+Model Components:
+  dimreduction: 49,152 params (33.0%)
+  attention: 99,457 params (66.8%)
+  classifier: 387 params (0.3%)
+
+ARCHITECTURE DETAILS
+----------------------------------------
+Input feature dimension: 384
+Number of classes: 3
+Backbone: ViT-S/16
+Pretraining: medical_ssl
+
+TRAINING PROCEDURE
+----------------------------------------
+train_epochs: 50
+batch_size: 1
+learning_rate: 1e-05
+weight_decay: 1e-06
+warmup_epochs: 0
+min_learning_rate: 0
+optimizer: AdamW
+scheduler: Linear Warmup + Cosine Annealing
+loss_function: CrossEntropyLoss
+dataset: BRACS
+num_classes: 3
+feature_dimension: 384
+
+PERFORMANCE RESULTS
+----------------------------------------
+Best epoch: 4
+Validation Accuracy: 51.6129
+Validation AUC: 0.6174
+Validation F1 Score: 0.4494
+Test Accuracy: 32.5581
+Test AUC: 0.5908
+Test F1 Score: 0.3087
+
+MODEL COMPONENT EXPLANATION
+----------------------------------------
+1. ENCODER (Feature Extractor):
+   - Extracts features from individual image patches
+   - Uses pre-trained Vision Transformer (ViT-S/16)
+   - Converts images to feature vectors (384-dimensional)
+   - Captures local texture and morphological patterns
+
+2. AGGREGATOR (Attention Mechanism):
+   - Weighs importance of different patches using attention
+   - Identifies diagnostically relevant regions
+   - Produces weighted sum of patch features
+   - Handles variable number of patches per slide
+
+3. CLASSIFIER (Prediction Layer):
+   - Takes aggregated features as input
+   - Maps to final class predictions (normal vs. tumor)
+   - Typically fully connected layers with softmax
+   - Outputs probability distribution over classes
+
+======================================================================

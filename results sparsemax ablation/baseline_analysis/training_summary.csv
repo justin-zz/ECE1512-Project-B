@@ -1,0 +1,4 @@
+Configuration,Dataset,Epochs,Batch Size,Learning Rate,Weight Decay,Warmup Epochs,Optimizer,Scheduler
+bracs_medical_ssl_config.yml,BRACS,50,1,1e-05,1e-06,0,AdamW,Linear Warmup + Cosine Annealing
+camelyon16_medical_ssl_config.yml,CAMELYON16,50,1,0.001,5e-05,1,AdamW,Linear Warmup + Cosine Annealing
+camelyon17_medical_ssl_config.yml,CAMELYON17,50,1,0.001,5e-05,1,AdamW,Linear Warmup + Cosine Annealing

@@ -1,0 +1,184 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h1 { color: #333; border-bottom: 2px solid #333; padding-bottom: 10px; }
+            h2 { color: #555; margin-top: 30px; }
+            table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+            th { background-color: #4CAF50; color: white; padding: 12px; text-align: left; }
+            td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+            tr:nth-child(even) { background-color: #f2f2f2; }
+            .timestamp { color: #666; font-size: 0.9em; }
+        </style>
+    </head>
+    <body>
+        <h1>Baseline Evaluation Report</h1>
+        <p class="timestamp">Generated on: 2025-12-09 04:07:00</p>
+        
+        <h2>Performance Summary</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Configuration</th>
+      <th>Best Epoch</th>
+      <th>Val Accuracy</th>
+      <th>Val AUC</th>
+      <th>Val F1</th>
+      <th>Test Accuracy</th>
+      <th>Test AUC</th>
+      <th>Test F1</th>
+      <th>Final Train Loss</th>
+      <th>Final Val Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bracs_medical_ssl_config.yml</td>
+      <td>19</td>
+      <td>40.3226</td>
+      <td>0.2910</td>
+      <td>0.2278</td>
+      <td>36.0465</td>
+      <td>0.4319</td>
+      <td>0.1766</td>
+      <td>1.0947</td>
+      <td>1.1326</td>
+    </tr>
+    <tr>
+      <td>camelyon16_medical_ssl_config.yml</td>
+      <td>4</td>
+      <td>92.5926</td>
+      <td>0.9886</td>
+      <td>0.9250</td>
+      <td>94.5736</td>
+      <td>0.9819</td>
+      <td>0.9422</td>
+      <td>0.0000</td>
+      <td>0.7357</td>
+    </tr>
+    <tr>
+      <td>camelyon17_medical_ssl_config.yml</td>
+      <td>13</td>
+      <td>90.0000</td>
+      <td>0.7569</td>
+      <td>0.6201</td>
+      <td>83.5000</td>
+      <td>0.8027</td>
+      <td>0.5940</td>
+      <td>0.0002</td>
+      <td>1.3251</td>
+    </tr>
+  </tbody>
+</table>
+        
+        <h2>Model Architecture</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Configuration</th>
+      <th>Input Dimension</th>
+      <th>Num Classes</th>
+      <th>Backbone</th>
+      <th>Pretraining</th>
+      <th>Total Params</th>
+      <th>Trainable Params</th>
+      <th>Trainable Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bracs_medical_ssl_config.yml</td>
+      <td>384</td>
+      <td>3</td>
+      <td>ViT-S/16</td>
+      <td>medical_ssl</td>
+      <td>148,996</td>
+      <td>148,996</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td>camelyon16_medical_ssl_config.yml</td>
+      <td>384</td>
+      <td>2</td>
+      <td>ViT-S/16</td>
+      <td>medical_ssl</td>
+      <td>148,867</td>
+      <td>148,867</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td>camelyon17_medical_ssl_config.yml</td>
+      <td>384</td>
+      <td>4</td>
+      <td>ViT-S/16</td>
+      <td>medical_ssl</td>
+      <td>149,125</td>
+      <td>149,125</td>
+      <td>100.00%</td>
+    </tr>
+  </tbody>
+</table>
+        
+        <h2>Training Configuration</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Configuration</th>
+      <th>Dataset</th>
+      <th>Epochs</th>
+      <th>Batch Size</th>
+      <th>Learning Rate</th>
+      <th>Weight Decay</th>
+      <th>Warmup Epochs</th>
+      <th>Optimizer</th>
+      <th>Scheduler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bracs_medical_ssl_config.yml</td>
+      <td>BRACS</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0.00001</td>
+      <td>0.000001</td>
+      <td>0</td>
+      <td>AdamW</td>
+      <td>Linear Warmup + Cosine Annealing</td>
+    </tr>
+    <tr>
+      <td>camelyon16_medical_ssl_config.yml</td>
+      <td>CAMELYON16</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0.00100</td>
+      <td>0.000050</td>
+      <td>1</td>
+      <td>AdamW</td>
+      <td>Linear Warmup + Cosine Annealing</td>
+    </tr>
+    <tr>
+      <td>camelyon17_medical_ssl_config.yml</td>
+      <td>CAMELYON17</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0.00100</td>
+      <td>0.000050</td>
+      <td>1</td>
+      <td>AdamW</td>
+      <td>Linear Warmup + Cosine Annealing</td>
+    </tr>
+  </tbody>
+</table>
+        
+        <h2>Component Explanations</h2>
+        <ul>
+            <li><strong>Encoder (Feature Extractor):</strong> Extracts features from individual image patches using pre-trained Vision Transformer (ViT-S/16). Converts images to 384-dimensional feature vectors capturing local texture and morphological patterns.</li>
+            <li><strong>Aggregator (Attention Mechanism):</strong> Weighs importance of different patches using attention mechanism. Identifies diagnostically relevant regions and produces weighted sum of patch features. Handles variable number of patches per slide.</li>
+            <li><strong>Classifier (Prediction Layer):</strong> Takes aggregated features as input and maps to final class predictions (normal vs. tumor). Typically consists of fully connected layers with softmax activation, outputting probability distribution over classes.</li>
+        </ul>
+    </body>
+    </html>
+    

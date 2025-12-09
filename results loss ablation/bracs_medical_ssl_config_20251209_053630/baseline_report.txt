@@ -1,0 +1,49 @@
+======================================================================
+BASELINE EVALUATION REPORT
+======================================================================
+
+MODEL STRUCTURE AND COMPONENTS
+----------------------------------------
+Total parameters: 148,996
+Trainable parameters: 148,996
+Trainable ratio: 100.00%
+
+Model Components:
+  dimreduction: 49,152 params (33.0%)
+  attention: 99,457 params (66.8%)
+  classifier: 387 params (0.3%)
+
+ARCHITECTURE DETAILS
+----------------------------------------
+Input feature dimension: 384
+Number of classes: 3
+Backbone: ViT-S/16
+Pretraining: medical_ssl
+
+TRAINING PROCEDURE
+----------------------------------------
+train_epochs: 50
+batch_size: 1
+learning_rate: 1e-05
+weight_decay: 1e-06
+warmup_epochs: 0
+min_learning_rate: 0
+optimizer: AdamW
+scheduler: Linear Warmup + Cosine Annealing
+loss_function: MultiMarginLoss
+dataset: BRACS
+num_classes: 3
+feature_dimension: 384
+
+PERFORMANCE RESULTS
+----------------------------------------
+Best epoch: 41
+Validation Accuracy: 38.7097
+Validation AUC: 0.6420
+Validation F1 Score: 0.2781
+Test Accuracy: 50.0000
+Test AUC: 0.5981
+Test F1 Score: 0.3817
+
+
+======================================================================

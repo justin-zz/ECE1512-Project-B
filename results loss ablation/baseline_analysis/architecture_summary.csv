@@ -1,0 +1,4 @@
+Configuration,Input Dimension,Num Classes,Backbone,Pretraining,Total Params,Trainable Params,Trainable Ratio
+bracs_medical_ssl_config.yml,384,3,ViT-S/16,medical_ssl,"148,996","148,996",100.00%
+camelyon16_medical_ssl_config.yml,384,2,ViT-S/16,medical_ssl,"148,867","148,867",100.00%
+camelyon17_medical_ssl_config.yml,384,4,ViT-S/16,medical_ssl,"149,125","149,125",100.00%
