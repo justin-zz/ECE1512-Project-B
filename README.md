@@ -34,18 +34,26 @@ The system is designed for binary/multi-class classification of histopathology s
 ## Quick Start
 
 ### Installation
-#### Clone repository
-#### Install dependencies
-pip install torch torchvision numpy scikit-learn matplotlib seaborn pandas pyyaml torchmetrics
-
-### Training
-Change parameters inside main.py (dataset, epochs, etc...)
-python main.py
-
-### Visualization
-python create_plots.py
 
 ```bash
-# Dependencies will be installed automatically when running the script
-# Manual installation if needed:
-pip install torch torchvision matplotlib numpy tqdm scipy scikit-learn
+# Clone this repository
+git clone https://github.com/justin-zz/ECE1512-Project-B.git
+cd ECE1512-Project-B
+```
+
+### Dependencies
+
+```bash
+pip install torch torchvision numpy scikit-learn matplotlib seaborn pandas pyyaml torchmetrics
+```
+
+### Training
+```bash
+# Change parameters inside main.py (dataset, epochs, etc...)
+python main.py
+```
+
+### Visualization
+```bash
+python create_plots.py
+```
