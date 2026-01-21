@@ -1,34 +1,51 @@
-# ECE1512-Project-B
+# Histopathology Image Classification with ABMIL
 
-CHANGES:
+## Project Overview
+This repository implements an Attention-Based Multiple Instance Learning (ABMIL) model for histopathology whole slide image (WSI) classification. The model processes image patches and aggregates them with attention mechanisms for slide-level predictions.
+The system is designed for binary/multi-class classification of histopathology slides by:
 
-- Instead of running the bash, run the models separately:
+1. Extracting features from individual image patches
+2. Weighing patch importance using attention mechanisms
+3. Aggregating features for slide-level classification
 
-python main.py --config config/camelyon16_medical_ssl_config.yml
+## Features
 
-python main.py --config config/camelyon17_medical_ssl_config.yml
+### Training Pipeline
 
-python main.py --config config/bracs_medical_ssl_config.yml
+- Multi-GPU support with automatic device detection
+- Comprehensive metrics tracking (Accuracy, AUC, F1)
+- Learning rate scheduling with warmup + cosine annealing
+- Model checkpointing and early stopping
+- Detailed logging and visualization
 
-- To create plots, run the following after running main on all datasets:
+### Analysis Tools
+- Training curves (loss, accuracy, AUC, F1)
+- Model parameter analysis and visualization
+- Performance comparison across configurations
+- Metric correlation analysis
+- Automated report generation (HTML/CSV/PDF)
 
+### Performance Metrics
+- Accuracy: Overall classification correctness
+- AUC-ROC: Area under the ROC curve
+- F1 Score: Harmonic mean of precision and recall
+- Loss: MultiMargin loss for training
+
+## Quick Start
+
+### Installation
+#### Clone repository
+#### Install dependencies
+pip install torch torchvision numpy scikit-learn matplotlib seaborn pandas pyyaml torchmetrics
+
+### Training
+Change parameters inside main.py (dataset, epochs, etc...)
+python main.py
+
+### Visualization
 python create_plots.py
 
-- Alternative to source .venv/bin/activate:
-  
-.venv\Scripts\activate.bat
-
-- Fix to use GPU:
-CUDA v13.1
-
-pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0 --index-url https://download.pytorch.org/whl/cu130
-
-Install latest gpu driver
-
-
-- Num of workers decreased to 0; had multiprocessing issues and this not only fixed it, but sped it up...
-
-- Additional requirements:
-
-pip install matplotlib>=3.5.0 seaborn>=0.11.0 pandas>=1.3.0 numpy>=1.21.0 scikit-learn>=1.0.0 torchmetrics>=0.11.0
-
+```bash
+# Dependencies will be installed automatically when running the script
+# Manual installation if needed:
+pip install torch torchvision matplotlib numpy tqdm scipy scikit-learn
