@@ -1,5 +1,9 @@
 # Histopathology Image Classification with ABMIL
-![MIL Pipeline](/images/pipeline.jpg)   
+<div align="center">
+<img src="/images/pipeline.jpg" width="500" height="200" alt="MIL Pipeline">   
+  <img src="/images/architecture.png" width="500" height="200" alt="Architecture">  
+</div>
+
 ## Project Overview
 This repository implements an Attention-Based Multiple Instance Learning (ABMIL) model for histopathology whole slide image (WSI) classification. The model processes image patches and aggregates them with attention mechanisms for slide-level predictions.
 The system is designed for binary/multi-class classification of histopathology slides by:
@@ -7,8 +11,6 @@ The system is designed for binary/multi-class classification of histopathology s
 1. Extracting features from individual image patches
 2. Weighing patch importance using attention mechanisms
 3. Aggregating features for slide-level classification
-4. 
-![MIL Pipeline](/images/architecture.jpg)   
 
 ## Features
 
